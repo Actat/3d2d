@@ -2,4 +2,4 @@
 
 図をきれいに描きたいという気持ちで作ります．
 
-three.jsを利用します．
+[three.js](https://threejs.org)を利用しています．
