@@ -7,10 +7,10 @@ renderer.domElement.id = "canvas";
 document.body.appendChild(renderer.domElement);
 
 var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera.position.set(0, 0, 100);
 camera.lookAt(0, 0, 0);
 
 var controls = new THREE.OrbitControls(camera, renderer.domElement);
+resetCameraPosition();
 
 var scene = new THREE.Scene();
 
@@ -32,3 +32,10 @@ function animate() {
     renderer.render(scene, camera);
 }
 animate();
+
+function resetCameraPosition() {
+    camera.position.set(50, 50, 50);
+    controls.update();
+}
+
+document.getElementById("camerareest").addEventListener("click", resetCameraPosition);
