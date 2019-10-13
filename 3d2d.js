@@ -1,5 +1,22 @@
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
+var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
-ctx.fillStyle = 'green';
-ctx.fillRect(10, 10, 200, 100);
+var renderer = new THREE.WebGLRenderer({
+    preserveDrawingBuffer: true
+});
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.domElement.id = "canvas";
+document.body.appendChild(renderer.domElement);
+
+var geometry = new THREE.BoxGeometry(1, 1, 1);
+var material = new THREE.MeshBasicMaterial({color: 0x00ff00});
+var cube = new THREE.Mesh(geometry, material);
+scene.add(cube);
+
+camera.position.z = 5;
+
+function animate() {
+    requestAnimationFrame(animate);
+    renderer.render(scene, camera);
+}
+animate();
