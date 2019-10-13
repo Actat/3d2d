@@ -10,6 +10,8 @@ var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHei
 camera.position.set(0, 0, 100);
 camera.lookAt(0, 0, 0);
 
+var controls = new THREE.OrbitControls(camera, renderer.domElement);
+
 var scene = new THREE.Scene();
 
 var material = new THREE.LineBasicMaterial({color: 0x000000});
