@@ -27,6 +27,15 @@ var geometry = new THREE.CircleGeometry(10, 64, Math.PI, Math.PI);
 geometry.vertices.shift();
 scene.add(new THREE.Line(geometry, material));
 
+var arrowHelperX = new THREE.ArrowHelper(new THREE.Vector3(1, 0, 0).normalize(), new THREE.Vector3(0, 0, 0), 10, 0x000000, 2);
+scene.add(arrowHelperX);
+
+var arrowHelperY = new THREE.ArrowHelper(new THREE.Vector3(0, 1, 0).normalize(), new THREE.Vector3(0, 0, 0), 10, 0x000000, 2);
+scene.add(arrowHelperY);
+
+var arrowHelperZ = new THREE.ArrowHelper(new THREE.Vector3(0, 0, 1).normalize(), new THREE.Vector3(0, 0, 0), 10, 0x000000, 2);
+scene.add(arrowHelperZ);
+
 function animate() {
     requestAnimationFrame(animate);
     renderer.render(scene, camera);
