@@ -18,6 +18,7 @@ var material = new THREE.LineBasicMaterial({color: 0x000000});
 draw();
 animate();
 document.getElementById("camerareest").addEventListener("click", resetCameraPosition);
+document.getElementById("redraw").addEventListener("click", draw);
 
 function draw() {
     scene = new THREE.Scene();
@@ -40,5 +41,4 @@ function animate() {
 function resetCameraPosition() {
     camera.position.set(50, 50, 50);
     controls.update();
-    draw();
 }
