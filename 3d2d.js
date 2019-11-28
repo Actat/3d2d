@@ -13,8 +13,11 @@ var controls = new THREE.OrbitControls(camera, renderer.domElement);
 resetCameraPosition();
 
 var scene = new THREE.Scene();
-
 var material = new THREE.LineBasicMaterial({color: 0x000000});
+
+draw();
+animate();
+document.getElementById("camerareest").addEventListener("click", resetCameraPosition);
 
 function draw() {
     scene = new THREE.Scene();
@@ -28,18 +31,14 @@ function draw() {
 
     eval(document.form.textarea.value);
 }
-draw();
 
 function animate() {
     requestAnimationFrame(animate);
     renderer.render(scene, camera);
 }
-animate();
 
 function resetCameraPosition() {
     camera.position.set(50, 50, 50);
     controls.update();
     draw();
 }
-
-document.getElementById("camerareest").addEventListener("click", resetCameraPosition);
